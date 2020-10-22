@@ -4,7 +4,9 @@ WORKDIR /opt
 RUN apt -qq update && \
     apt -qq install -y git && \
     mkdir -p /app && git clone git clone https://github.com/maple3142/aria2c-ariang /app && \
-    apt -qq –-purge remove git && \
+    apt -qq –-purge remove git -y && \
+    apt -qq autoremove -y && \
+    apt -qq clean autoclean && \
     rm -rf /var/cache/apt/archives/*.deb \
        /var/lib/apt/lists/*
 
