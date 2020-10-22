@@ -8,6 +8,8 @@ RUN apt -qq update && \
     rm -rf /var/cache/apt/archives/*.deb \
        /var/lib/apt/lists/*
 
+ADD . /opt
+
 WORKDIR /app
 RUN bash setup.sh && \
     yarn
